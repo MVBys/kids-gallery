@@ -1,0 +1,377 @@
+    @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    html,
+    body {
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    
+    .header_title_wrapper {
+        padding: 170px;
+        height: 100%;
+    }
+    
+    .header_title {
+        font-family: 'Amatic SC', cursive;
+        max-width: 1000px;
+        height: 290px;
+        background-image: url(../img/dots.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* margin-bottom: 140px; */
+        position: relative;
+        z-index: 1;
+    }
+    
+    .header_title h5 {
+        letter-spacing: 2px;
+        font-size: 45px;
+        user-select: none;
+    }
+    
+    .header_title h1 {
+        font-size: 80px;
+        user-select: none;
+        margin-bottom: -50px;
+        background: linear-gradient(45deg, rgba(245, 154, 154, 1) 0%, rgba(217, 69, 254, 1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #0B2349;
+        display: table;
+        letter-spacing: 1px;
+    }
+    
+    .header_svg {
+        position: absolute;
+    }
+    
+    .title_spot {
+        width: 17%;
+        position: absolute;
+        right: 0px;
+        top: 140px;
+    }
+    
+    .title_spot2 {
+        width: 17%;
+        position: absolute;
+        left: 0px;
+        top: 100px;
+    }
+    
+    .title_hand1 {
+        position: absolute;
+        top: -70px;
+        right: -450px;
+    }
+    
+    .title_hand2 {
+        position: absolute;
+        top: 150px;
+        right: 250px;
+    }
+    
+    .title_spray1 {
+        position: absolute;
+        top: -15px;
+        left: -400px;
+    }
+    
+    .title_spray2 {
+        position: absolute;
+        top: 250px;
+        left: 0px;
+    }
+    
+    .title_spray3 {
+        position: absolute;
+        top: 240px;
+        left: -250px;
+    }
+    
+    .title_spray4 {
+        position: absolute;
+        top: -30px;
+        left: 40px;
+    }
+    
+    .title_spray5 {
+        position: absolute;
+        top: 160px;
+        left: 270px;
+    }
+    
+    .content_header-wrapper {
+        width: 232px;
+        display: flex;
+        align-items: center;
+        margin: 0px 20px 100px 20px;
+        border-bottom: 2px solid;
+        border-color: #FF8A3D;
+        margin-bottom: 37px;
+    }
+    
+    .content_header-image {
+        width: 60px;
+    }
+    
+    .content_header {
+        font-family: 'Amatic SC', cursive;
+        font-size: 30px;
+    }
+    
+    .content {
+        max-width: 1200px;
+        margin: auto;
+    }
+    
+    .card {
+        overflow: hidden;
+        cursor: pointer;
+        width: 360px;
+        height: 330px;
+        font-family: 'Amatic SC', cursive;
+        font-size: 26px;
+        border-radius: 1%;
+        margin: 0px 20px 100px 20px;
+        position: relative;
+        box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+        transition: transform 0.2s;
+        position: relative;
+    }
+    
+    .img_card {
+        transition: transform 0.4s;
+    }
+    
+    .img_card:hover {
+        transform: scale(1.1);
+        transition: transform 0.2s;
+    }
+    
+    .card:hover {}
+    
+    .card_text {
+        display: flex;
+        align-items: center;
+        width: 360px;
+        height: 60px;
+        padding-left: 17px;
+        position: absolute;
+        bottom: -27px;
+        box-sizing: border-box;
+    }
+    
+    .img_card {
+        width: 360px;
+    }
+    
+    .card1 .card_text {
+        background: linear-gradient(90deg, rgba(1, 209, 255, 1) 0%, rgba(10, 149, 168, 1) 100%);
+    }
+    
+    .card2 .card_text {
+        background: linear-gradient(90deg, rgba(1, 255, 164, 1) 0%, rgba(91, 158, 122, 1) 100%);
+    }
+    
+    .card3 .card_text {
+        background: linear-gradient(90deg, rgba(255, 1, 245, 1) 0%, rgba(149, 13, 144, 1) 100%);
+    }
+    
+    .active {
+        width: 100px;
+        height: 40px;
+        padding: 0px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 25px;
+        color: #EBFF00;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1;
+    }
+    
+    .active_text {
+        font-family: 'Amatic SC', cursive;
+        color: #EBFF00;
+    }
+    
+    .active img {
+        display: block;
+    }
+    
+    .active p {}
+    
+    .content_cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        position: relative;
+        justify-content: center;
+        z-index: 1;
+    }
+    
+    .content_wrapper {
+        position: relative;
+    }
+    
+    .bottom_spot1 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 65%;
+    }
+    
+    .bottom_spot2 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 55%;
+    }
+    
+    .bottom_spot_wrapper {}
+    
+    @media (max-width: 767px) {
+        .header_title {
+            margin-top: 201px;
+            margin-bottom: 80px;
+        }
+        .header_title h1 {
+            font-size: 35px;
+            margin-bottom: -40px;
+        }
+        .header_title h5 {
+            font-size: 22px;
+        }
+        .title_spot {
+            width: 20%;
+            position: absolute;
+            right: 0px;
+            top: 450px;
+        }
+        .title_spot2 {
+            width: 20%;
+            position: absolute;
+            left: 0px;
+            top: 120px;
+        }
+        .title_hand1 {
+            width: 60px;
+            position: absolute;
+            top: -35px;
+            left: 120px;
+        }
+        .title_hand2 {
+            width: 60px;
+            position: absolute;
+            top: 50px;
+            right: 120px;
+        }
+        .title_spray1 {
+            width: 60px;
+            position: absolute;
+            top: -10px;
+            left: -192px;
+        }
+        .title_spray2 {
+            width: 60px;
+            position: absolute;
+            top: 100px;
+            left: 50px;
+        }
+        .title_spray3 {
+            width: 60px;
+            position: absolute;
+            top: 112px;
+            left: -83px;
+        }
+        .title_spray4 {
+            width: 60px;
+            position: absolute;
+            top: -20px;
+            left: 0px;
+        }
+        .title_spray5 {
+            width: 49px;
+            position: absolute;
+            top: 57px;
+            left: 117px;
+        }
+        .card {
+            margin-bottom: 55px;
+        }
+        .header_title {
+            background-size: 270px;
+            background-position-y: -38px;
+        }
+        .header_title_wrapper {
+            padding: 0px;
+        }
+    }
+    
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+        .content {
+            width: 750px;
+        }
+        .header_title h1 {
+            font-size: 68px;
+        }
+        .title_hand1 {
+            width: 130px;
+            right: 10px;
+            top: -60px;
+        }
+        .title_hand2 {
+            top: 160px;
+            left: 90px;
+            width: 100px;
+            transform: rotate(-60deg);
+        }
+        .title_spray1 {
+            width: 100px;
+            top: 10px;
+            left: 20px;
+        }
+        .title_spray2 {
+            width: 100px;
+            top: 206px;
+            left: 563px;
+        }
+        .title_spray3 {
+            width: 100px;
+            top: 105px;
+            left: 85px;
+            width: 60px;
+            transform: rotate(-30deg);
+        }
+        .title_spray4 {
+            top: -23px;
+            left: 416px;
+            width: 70px;
+            transform: rotate(20deg);
+        }
+        .title_spray5 {
+            top: 181px;
+            left: 264px;
+        }
+        .bottom_spot1 {
+            width: 70%;
+        }
+        .bottom_spot2 {
+            width: 60%;
+        }
+        .card {
+            margin-bottom: 55px;
+        }
+        .header_title {
+            background-size: 270px;
+            background-position-y: -38px;
+        }
+    }
