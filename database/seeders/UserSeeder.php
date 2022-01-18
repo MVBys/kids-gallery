@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Contest;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
-class ContestSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +14,8 @@ class ContestSeeder extends Seeder
      */
     public function run()
     {
-        Contest::factory()->count(20)->create();
+        User::factory()
+            ->count(10)
+            ->create();
     }
 }

@@ -22,7 +22,8 @@ class CreateContestsTable extends Migration
             $table->string('cover');
             $table->string('instruction');
             $table->integer('status');
-            $table->json('config');
+            $table->integer('confirm');
+            $table->text('config')->nullable();
             $table->dateTime('started_at');
             $table->dateTime('end_registration_at');
             $table->dateTime('completion_at');
