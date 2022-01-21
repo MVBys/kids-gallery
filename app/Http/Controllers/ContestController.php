@@ -13,9 +13,12 @@ class ContestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $contest =Contest::find($id);
+        dd($contest);
+        return '';
+
     }
 
     /**

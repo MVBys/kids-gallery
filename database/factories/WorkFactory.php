@@ -18,6 +18,7 @@ class WorkFactory extends Factory
             'contest_id' => random_int(1,20),
             'title' => $this->faker->sentence(random_int(1,3)),
             'file' => 'works/file'.$this->faker->randomDigitNotNull().'.jpg',
+            'confirm' => random_int(0,1),
             'participant_name' => Str::before($all_name, ' '),
             'particapant_lastname' => Str::after($all_name, ' '),
             'sum_of_points' => random_int(100,500),

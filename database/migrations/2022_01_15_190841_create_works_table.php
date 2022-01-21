@@ -19,6 +19,7 @@ class CreateWorksTable extends Migration
             $table->foreign('contest_id')->references('id')->on('contests');
             $table->string('title');
             $table->string('file');
+            $table->integer('confirm');
             $table->string('participant_name');
             $table->string('particapant_lastname');
             $table->double('sum_of_points', 8, 2);
