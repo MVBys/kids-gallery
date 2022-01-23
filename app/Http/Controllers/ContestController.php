@@ -17,7 +17,7 @@ class ContestController extends Controller
     {
         $contest =Contest::find($id);
 
-        if ($contest->status == 2) return redirect()->route('works.voting.contest', $id);
+        if ($contest->status == 2) return redirect()->route('works.voting.contest', ['id'=>$id, 'contestTitle'=> $contest->title]);
 
         if ($contest->status == 3) return redirect()->route('works.complited.contest', ['id'=>$id, 'contestTitle'=> $contest->title]);
 

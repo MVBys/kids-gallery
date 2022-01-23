@@ -18,7 +18,14 @@ use App\Http\Controllers\ContestController;
 
 Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('/contest/{id}', [ContestController::class, 'index'])->name('contest');
-Route::get('/complitedcontest/{id}/{contestTitle}', [WorkController::class, 'getWorksComplitedContest'])->name('works.complited.contest');
+Route::get('/complitedcontest/{contest_id}/{contestTitle}', [WorkController::class, 'getWorksComplitedContest'])->name('works.complited.contest');
+Route::get('/votingcontest/{contest_id}/{contestTitle}', [WorkController::class, 'getWorksVotingContest'])->name('works.voting.contest');
+
+
+
+
+Route::post('/votingnext/{contest_id}', [WorkController::class, 'getNextVotingWork'])->name('next.voting.work');
+
 
 
 Route::get('/dashboard', function () {
