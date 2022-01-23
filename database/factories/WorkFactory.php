@@ -15,7 +15,7 @@ class WorkFactory extends Factory
     {
         $all_name = $this->faker->name();
         return [
-            'contest_id' => random_int(1,20),
+            'contest_id' => random_int(1,40),
             'title' => $this->faker->sentence(random_int(1,3)),
             'file' => 'works/file'.$this->faker->randomDigitNotNull().'.jpg',
             'confirm' => random_int(0,1),

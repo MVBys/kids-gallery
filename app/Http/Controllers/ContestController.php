@@ -16,9 +16,12 @@ class ContestController extends Controller
     public function index($id)
     {
         $contest =Contest::find($id);
-        dd($contest);
-        return '';
 
+        if ($contest->status == 2) return redirect()->route('works.voting.contest', $id);
+
+        if ($contest->status == 3) return redirect()->route('works.complited.contest', ['id'=>$id, 'contestTitle'=> $contest->title]);
+
+        return redirect('404');
     }
 
     /**

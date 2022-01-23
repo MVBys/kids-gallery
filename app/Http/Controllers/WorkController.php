@@ -13,7 +13,19 @@ class WorkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getWorksComplitedContest($id, $contestTitle)
+    {
+        $works = Work::where('contest_id', $id)->orderBy('sum_of_points','desc')->get();
+
+
+        return view('gallery.complitedContest', compact('works', 'contestTitle') );
+    }
+
+
+
+
+
+     public function index()
     {
         //
     }

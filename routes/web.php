@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\WorkController;
 use App\Http\Controllers\ContestController;
 
 /*
@@ -17,6 +18,8 @@ use App\Http\Controllers\ContestController;
 
 Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('/contest/{id}', [ContestController::class, 'index'])->name('contest');
+Route::get('/complitedcontest/{id}/{contestTitle}', [WorkController::class, 'getWorksComplitedContest'])->name('works.complited.contest');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

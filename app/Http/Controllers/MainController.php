@@ -9,8 +9,9 @@ class MainController extends Controller
     public function index()
     {
         $contests = Contest::where('status', '>=', 2)
+            ->orderBy('status', 'asc')
             ->orderBy('end_registration_at', 'desc')
-            ->get();
+            ->simplePaginate(9);
 
         return view('gallery.main', compact('contests'));
     }

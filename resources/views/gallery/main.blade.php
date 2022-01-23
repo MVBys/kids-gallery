@@ -80,7 +80,11 @@
 
 
 
+
         @endforeach
+        <div>
+            {{ $contests->links() }}
+        </div>
     </div>
 
 @endsection
