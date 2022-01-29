@@ -1405,3 +1405,12 @@ html {
 .display-block {
     display: block
 }
+
+
+.button_container{
+    margin: 0 auto;
+    text-align: center;
+}
+.message_btn{
+    padding: 5px;
+}

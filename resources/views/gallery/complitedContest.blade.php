@@ -5,7 +5,7 @@
 
 
 
-            <h1 class="title">{{ $contestTitle }}</h1>
+            <h1 class="title">{{ $works[0]->contest->title }}</h1>
 
 
             @foreach ($works as $work)

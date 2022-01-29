@@ -18,13 +18,14 @@ use App\Http\Controllers\ContestController;
 
 Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('/contest/{id}', [ContestController::class, 'index'])->name('contest');
-Route::get('/complitedcontest/{contest_id}/{contestTitle}', [WorkController::class, 'getWorksComplitedContest'])->name('works.complited.contest');
-Route::get('/votingcontest/{contest_id}/{contestTitle}', [WorkController::class, 'getWorksVotingContest'])->name('works.voting.contest');
+Route::get('/complitedcontest/{contest_id}', [WorkController::class, 'getWorksComplitedContest'])->name('works.complited.contest');
+Route::get('/votingcontest/{contest_id}', [WorkController::class, 'getWorkVotingContest'])->name('works.voting.contest');
+Route::get('/messagenoworks', [WorkController::class, 'messageNoWork'])->name('message.no.works');
 
 
 
 
-Route::post('/votingnext/{contest_id}', [WorkController::class, 'getNextVotingWork'])->name('next.voting.work');
+Route::post('/nextwork/{work_id}', [WorkController::class, 'getNextVotingWork'])->name('next.voting.work');
 
 
 

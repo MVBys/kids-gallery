@@ -6,14 +6,19 @@
 
 
     <div class="container animated bounceIn">
-        <h1 class="title">Конкурс - {{ $contestTitle }}</h1>
+        <h1 class="title">Конкурс - {{ $work->contest->title }}</h1>
+        @if ($errors->any())
+            <div style="text-align: center; color:fuchsia; font-size: 50px;">
+                <p>Потрібно оцінити роботу</p>
+            </div>
+        @endif
 
         <div class="card card_center card_full-width">
             <p class="work__header">{{ $work->title }}</p>
             <div class="image card__image card__image_big-height card__image_margin">
-                <img src="{{Storage::disk('public')->url($work->file)}}" alt="{{ $work->title }}" />
+                <img src="{{ Storage::disk('public')->url($work->file) }}" alt="{{ $work->title }}" />
             </div>
-            <form action="{{route('next.voting.work', $work->contest_id)}}" method="post">
+            <form action="{{ route('next.voting.work', ['work_id'=>$work->id]) }}" method="post">
                 @csrf
                 <div class="rating">
                     <div class="rating__items">
