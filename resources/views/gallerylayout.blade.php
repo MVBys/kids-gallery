@@ -15,7 +15,10 @@
 </head>
 
 <body>
+
+
     @include('gallery.include.nav')
+
 
     <div class="background-wrapper">
         <div class="background-wrapper__shape background-wrapper__shape_right-margin animated pulse">

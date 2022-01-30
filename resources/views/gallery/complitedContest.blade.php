@@ -5,9 +5,9 @@
 
 
 
-            <h1 class="title">{{ $works[0]->contest->title }}</h1>
-
-
+    <h1 class="title">{{ $works[0]->contest->title }}</h1>
+    <div class="container">
+        <div class="contest-winner">
             @foreach ($works as $work)
 
 
@@ -27,13 +27,13 @@
 
                     @if ($loop->first)
                         <div class="card__cup image">
-                            <img src="{{asset('public/img/winner/cup.png')}}" alt="" />
+                            <img src="{{ asset('public/img/winner/cup.png') }}" alt="" />
                         </div>
                     @endif
 
                     <div class="card__line">
                         <div class="contests__contest-name card-title">
-                            {{$work->participant_name." ". $work->particapant_lastname}}
+                            {{ $work->participant_name . ' ' . $work->particapant_lastname }}
                         </div>
                     </div>
                     <div class="image card__image card__image_big-height">
@@ -41,18 +41,18 @@
                     </div>
                     <div class="card__line">
                         <div class="contests__contest-name card-title">
-                           {{ $work->title}}
+                            {{ $work->title }}
                         </div>
-                        <p class="card-title">{{$work->sum_of_points / $work->number_of_votes }}</p>
+                        <p class="card-title">{{ $work->sum_of_points / $work->number_of_votes }}</p>
                     </div>
                 </div>
 
             @endforeach
 
+        </div>
+    </div>
 
-
-
-        {{-- <div class="background-wrapper background-wrapper_bottom">
+    {{-- <div class="background-wrapper background-wrapper_bottom">
             <div class="background-wrapper__shape animated pulse">
                 <img src="./img/svg/Polygon4.svg" alt="" />
             </div>

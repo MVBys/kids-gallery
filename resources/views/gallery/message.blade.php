@@ -6,11 +6,9 @@
 
 
     <div class="container animated bounceIn">
-        <h1 class="title">Ви проголусували за всі роботи які приймають участь у цьому конкурсі</h1>
-
-
-
-
+        <h1 class="title">
+           {{ $message}}
+        </h1>
         <div class="button_container">
 
             <a class="btn_rate message_btn"  href="{{route('main')}}"> Перейти до головної сорінки </a>

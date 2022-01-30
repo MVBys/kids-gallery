@@ -15,4 +15,10 @@ class MainController extends Controller
 
         return view('gallery.main', compact('contests'));
     }
+
+
+    public function message($message)
+    {
+        return view('gallery.message', compact('message'));
+    }
 }

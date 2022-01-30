@@ -60,6 +60,12 @@ html {
     margin-bottom: 10px
 }
 
+@media screen and (max-width:425px) {
+    .work__header {
+        text-align: center
+    }
+}
+
 .bottom_spot1 {
     position: absolute;
     bottom: 0;
@@ -88,6 +94,14 @@ html {
     align-items: center
 }
 
+@media screen and (max-width:768px) {
+    .rating {
+        max-width: 100%;
+        flex-direction: column;
+        flex-wrap: nowrap !important
+    }
+}
+
 .rating__items {
     width: 573px;
     height: 100%;
@@ -96,6 +110,18 @@ html {
     display: flex;
     flex-direction: row-reverse;
     justify-content: start
+}
+
+@media screen and (max-width:768px) {
+    .rating__items {
+        justify-content: center
+    }
+}
+
+@media screen and (max-width:768px) {
+    .button_container {
+        margin: 0 auto
+    }
 }
 
 .rating__item {
@@ -309,7 +335,7 @@ header {
 }
 
 .nav {
-    width: 350px;
+    width: 600px;
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
@@ -321,20 +347,19 @@ header {
 .nav a {
     height: -webkit-max-content;
     height: -moz-max-content;
-    height: 80px;
+    height: max-content;
     text-decoration: none;
     color: #393939;
     font-family: "Amatic SC", cursive;
     font-size: 32px;
     display: flex;
     align-items: center;
-    transition: transform .2s, text-shadow .2s;
-
+    transition: transform .2s, text-shadow .2s
 }
 
 .nav a:hover {
     transform: scale(1.1);
-    background-image: url(../img/svg/skipe.svg);
+    background-image: url(img/svg/skipe.svg);
     background-repeat: no-repeat;
     background-size: 55px;
     background-position: center;
@@ -834,6 +859,7 @@ html {
     }
 }
 
+.form-title,
 .title {
     font-family: "Amatic SC", cursive;
     text-align: center;
@@ -851,13 +877,22 @@ html {
 }
 
 @media screen and (max-width:425px) {
+
+    .form-title,
     .title {
         font-size: 36px
     }
 }
 
+.form-title {
+    background: linear-gradient(267.59deg, #092eec .72%, #8922ef 59.59%, #ac14f3 99.84%);
+    -webkit-background-clip: text;
+    background-clip: text
+}
+
 .contests-tite__title,
 .subtitle {
+    font-weight: 700;
     font-size: 24px;
     text-align: center;
     font-family: "Amatic SC", cursive
@@ -916,6 +951,7 @@ html {
 
 .main {
     min-height: 100%;
+    max-height: auto;
     position: relative;
     flex: 1 1 0;
     padding: 130px 0 50px 0
@@ -951,7 +987,7 @@ html {
 .card {
     position: relative;
     max-width: 600px;
-    width: 360px;
+    width: 350px;
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
@@ -961,10 +997,8 @@ html {
     cursor: pointer
 }
 
-.card_winner {
-    width: 100%;
-    max-width: 700px
-}
+
+
 
 .card_full-width {
     width: 100%
@@ -996,6 +1030,7 @@ html {
 }
 
 .card__cup {
+
     z-index: 1;
     position: absolute;
     right: 10px;
@@ -1106,6 +1141,14 @@ html {
     height: max-content;
     padding: 10px;
     color: #fff
+}
+
+
+
+
+
+.contest-winner .card:first-child .card__cup {
+    display: block
 }
 
 .background-wrapper {
@@ -1240,15 +1283,13 @@ html {
 .search-form {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-    padding: 0 15px;
+    flex-wrap: wrap
 }
 
 .search-form__item {
     display: flex;
     align-items: center;
-    margin-right: 40px;
+    margin-right: 20px;
     margin-bottom: 20px
 }
 
@@ -1257,7 +1298,7 @@ html {
 }
 
 .search-form .contests-tite {
-    margin-right: 50px
+    margin-right: 20px
 }
 
 .gradient-wrapper {
@@ -1352,6 +1393,11 @@ html {
     width: 100%
 }
 
+.personal-area__text-area {
+    max-width: 100%;
+    min-width: 100%
+}
+
 .personal-area__container {
     display: grid;
     max-width: 400px;
@@ -1374,6 +1420,7 @@ html {
 }
 
 .button {
+    cursor: pointer;
     display: block;
     background-color: #0aacf0;
     font-family: "Amatic SC", cursive;
@@ -1398,6 +1445,10 @@ html {
     margin: 55px auto
 }
 
+.button_full-width {
+    width: 100%
+}
+
 .bottom-50 {
     margin-bottom: 50px
 }
@@ -1406,11 +1457,62 @@ html {
     display: block
 }
 
+.form {
+    max-width: 350px;
+    padding: 20px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 0 33px 0 #0000009a;
+    border-radius: 5px
+}
 
+.form .input,
+.form .select,
+.form .standart-text {
+    margin-bottom: 15px
+}
+
+.form .input {
+    margin-bottom: 0
+}
+
+.form .button {
+    margin-bottom: 15px
+}
+
+.form .gradient-wrapper {
+    width: 100%;
+    margin-bottom: 15px
+}
 .button_container{
     margin: 0 auto;
     text-align: center;
 }
 .message_btn{
     padding: 5px;
+}
+
+
+
+
+.contest-winner .card:first-child {
+    width: 100%;
+    max-width: 800px
+
+}
+.contest-winner .card {
+    width: 80%;
+    max-width: 600px
+
+}
+
+@media screen and (max-width:600px) {
+    .contest-winner .card {
+        width: 100%;
+
+
+    }
+}
+.card_full-width {
+    width: 100%;
 }

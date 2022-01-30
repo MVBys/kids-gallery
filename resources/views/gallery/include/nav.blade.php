@@ -1,4 +1,5 @@
 <header class="header">
+
     <div class="header_logo_wrapper">
         <a href="{{route('main')}}" class="logo_link">
             <img class="header_logo" src="{{asset('public/img/logo.svg')}}" alt="" />
@@ -26,7 +27,9 @@
 
     <nav class="nav">
         <a href="{{route('main')}}">Головна</a>
-        <a href="competition_work.html">Прийняти участь</a>
+        <a href="{{route('contest.for.participate')}}">Прийняти участь</a>
         <a href="#">Вхід</a>
     </nav>
+
+
 </header>

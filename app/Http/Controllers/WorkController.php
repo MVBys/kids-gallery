@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Work;
-use App\Models\Voting;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
 use App\Http\Requests\StoreWorkRequest;
 use App\Http\Requests\UpdateWorkRequest;
+use App\Models\Voting;
+use App\Models\Work;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class WorkController extends Controller
 {
@@ -22,6 +23,8 @@ class WorkController extends Controller
         $works = Work::where('contest_id', $contest_id)->orderBy('sum_of_points', 'desc')->get();
         return view('gallery.complitedContest', compact('works'));
     }
+
+// REFACTORING!!!!!!!!!!! SERVISE
 
     public function getWorkVotingContest($contest_id)
     {
@@ -52,12 +55,15 @@ class WorkController extends Controller
             ->orderBy('number_of_votes')
             ->first();
 
-
-        if(!$work) return view('gallery.messageNoWorks');;
+        if (!$work) {
+            return redirect()->route('message', 'Ви проголусували за всі роботи які приймають участь у цьому конкурсі');
+        }
 
         return view('gallery.voitingWork', compact('work'));
 
     }
+
+    // REFACTORING!!!!!!!!!!!  SERVISE
 
     public function getNextVotingWork(Request $request, $work_id)
     {
@@ -67,18 +73,15 @@ class WorkController extends Controller
         ]);
         $work = Work::findOrFail($work_id);
 
-
         if (!$request->cookie('voting_token')) {
             return redirect()->route('works.voting.contest', $work->contest->id);
         }
 
         $works_ids = Voting::where('token', $request->cookie('voting_token'))->first();
 
-
         if (!$works_ids) {
             return redirect()->route('works.voting.contest', $work->contest->id);
         }
-
 
         $works_ids->works_ids .= $work_id . '|';
         $works_ids->save();
@@ -87,11 +90,35 @@ class WorkController extends Controller
         $work->number_of_votes += 1;
         $work->save();
 
-
         return redirect()->route('works.voting.contest', $work->contest->id);
     }
 
+    // SERVISE
+    public function regWorkInContest(StoreWorkRequest $request, $contest_id)
+    {
 
+        $request = $request->validated();
+        $request['file'] = Storage::disk('public')->put('works', $request['file']);
+
+        $work = [
+            'contest_id' => $contest_id,
+            'title' => $request['title'],
+            'file' => $request['file'],
+            'confirm' => 1,
+            'participant_name' => $request['participant_name'],
+            'particapant_lastname' => $request['particapant_lastname'],
+            'sum_of_points' => 0,
+            'number_of_votes' => 0,
+            'like' => 0,
+            'dislike' => 0,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ];
+
+        Work::create($work);
+        $message =  'Вітаємо! Ваша робота зареєстрована!';
+        return redirect()->route('message', $message);
+    }
 
     public function index()
     {
@@ -103,9 +130,9 @@ class WorkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($contest_id)
     {
-        //
+
     }
 
     /**

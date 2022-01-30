@@ -24,6 +24,26 @@ class ContestController extends Controller
         return redirect('404');
     }
 
+
+
+    public function chooseContestForParticipate()
+    {
+        $contests = Contest::where('status', 2)->get();
+
+        return view('gallery.contestForParticipate', compact('contests'));
+    }
+
+
+    public function registrationInContest($contest_id)
+    {
+        $contest = Contest::findOrFail($contest_id);
+
+        return view('gallery.formForParticipate', compact('contest'));
+
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *
