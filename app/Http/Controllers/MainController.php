@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contest;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -20,5 +21,11 @@ class MainController extends Controller
     public function message($message)
     {
         return view('gallery.message', compact('message'));
+    }
+
+    public function cabinet()
+    {
+        $contests = Contest::where('user_id', Auth::id())->orderByDesc('created_at')->get();
+        return view('gallery.cabinet', compact('contests'));
     }
 }

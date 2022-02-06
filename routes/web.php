@@ -28,16 +28,12 @@ Route::get('/participate/form/{contest_id}', [ContestController::class, 'registr
 
 
 
-
-
-
 Route::post('/nextwork/{work_id}', [WorkController::class, 'getNextVotingWork'])->name('next.voting.work');
 Route::post('/regwork/{contest_id}', [WorkController::class, 'regWorkInContest'])->name('reg.work.in.contest');
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [MainController::class, 'cabinet'])->middleware(['auth'])->name('cabinet');
+Route::post('/dashboard/conteststore', [ContestController::class, 'store'])->middleware(['auth'])->name('contest.store');
 
 require __DIR__.'/auth.php';

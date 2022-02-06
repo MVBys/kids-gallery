@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreContestRequest;
 use App\Http\Requests\UpdateContestRequest;
 
@@ -15,16 +17,18 @@ class ContestController extends Controller
      */
     public function index($id)
     {
-        $contest =Contest::findOrFail($id);
+        $contest = Contest::findOrFail($id);
 
-        if ($contest->status == 2) return redirect()->route('works.voting.contest', ['contest_id'=>$id, ]);
+        if ($contest->status == 2) {
+            return redirect()->route('works.voting.contest', ['contest_id' => $id]);
+        }
 
-        if ($contest->status == 3) return redirect()->route('works.complited.contest', ['contest_id'=>$id, ]);
+        if ($contest->status == 3) {
+            return redirect()->route('works.complited.contest', ['contest_id' => $id]);
+        }
 
         return redirect('404');
     }
-
-
 
     public function chooseContestForParticipate()
     {
@@ -33,7 +37,6 @@ class ContestController extends Controller
         return view('gallery.contestForParticipate', compact('contests'));
     }
 
-
     public function registrationInContest($contest_id)
     {
         $contest = Contest::findOrFail($contest_id);
@@ -41,8 +44,6 @@ class ContestController extends Controller
         return view('gallery.formForParticipate', compact('contest'));
 
     }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -62,7 +63,27 @@ class ContestController extends Controller
      */
     public function store(StoreContestRequest $request)
     {
-        //
+        $request = $request->validated();
+
+        $contest_data = [
+            'user_id' => Auth::id(),
+            'title' => $request['title'],
+            'description' => $request['description'],
+            'cover' => Storage::disk('public')->put('contests', $request['cover']),
+            'instruction' => ' ',
+            'status' => 0,
+            'config' => ' ',
+            'started_at' => $request['started_at'],
+            'end_registration_at' => $request['end_registration_at'],
+            'completion_at' => $request['completion_at'],
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ];
+
+        Contest::create($contest_data);
+
+        return redirect()->route('cabinet');
+
     }
 
     /**

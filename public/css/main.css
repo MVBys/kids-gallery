@@ -1097,7 +1097,7 @@ html {
 }
 
 .card__active-wrapper {
-    display: none;
+    display: block/*  */;
     align-items: center;
     justify-content: center;
     position: absolute;
@@ -1402,7 +1402,7 @@ html {
     display: grid;
     max-width: 400px;
     width: 100%;
-    grid-template-columns: 1fr 320px;
+    grid-template-columns: 1fr 180px;
     grid-row-gap: 20px
 }
 
@@ -1515,4 +1515,10 @@ html {
 }
 .card_full-width {
     width: 100%;
+}
+
+
+.cabinet_form{
+    max-width: 1050px ;
+    margin: 40px auto;
 }
